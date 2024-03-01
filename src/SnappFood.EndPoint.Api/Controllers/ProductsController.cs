@@ -18,8 +18,8 @@ namespace SnappFood.EndPoint.Api.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetAsync(Guid id, CancellationToken cancellationToken)
         {
-            await _productService.GetAsync(id, cancellationToken);
-            return Created("Products", null);
+            var product = await _productService.GetAsync(id, cancellationToken);
+            return Ok(product);
         }
 
         [HttpPost]
