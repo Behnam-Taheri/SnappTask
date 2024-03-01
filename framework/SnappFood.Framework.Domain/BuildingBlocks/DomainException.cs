@@ -1,7 +1,6 @@
 ﻿namespace SnappFood.Framework.Domain.BuildingBlocks
 {
-    public record ValueObject
+    public class DomainException : Exception
     {
-
     }
 }

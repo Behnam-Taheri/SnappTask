@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SnappFood.Application.Contract\SnappFood.Application.Contract.csproj" />
+    <ProjectReference Include="..\SnappFood.Domain\SnappFood.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

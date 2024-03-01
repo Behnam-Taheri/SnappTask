@@ -11,7 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\SnappFood.Application.Contract\SnappFood.Application.Contract.csproj" />
+    <ProjectReference Include="..\SnappFood.Application\SnappFood.Application.csproj" />
+    <ProjectReference Include="..\SnappFood.DomainServices\SnappFood.DomainServices.csproj" />
   </ItemGroup>
 
 </Project>
