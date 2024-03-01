@@ -6,13 +6,15 @@ namespace SnappFood.Domain.Products.ValueObjects
 {
     public record Title : ValueObject
     {
-        public string Value { get; private set; }
-
+        private Title() { }
+       
         public Title(string value, IProductTitleDuplicateChecker duplicateChecker)
         {
             Validate(value, duplicateChecker);
             Value = value;
         }
+
+        public string Value { get; private set; }
 
         private static void Validate(string value, IProductTitleDuplicateChecker duplicateChecker)
         {

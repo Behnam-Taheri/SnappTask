@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using SnappFood.Domain.Orders;
 using SnappFood.Domain.Products;
 
 namespace SnappFood.Persistence.EF.Products
@@ -15,7 +16,7 @@ namespace SnappFood.Persistence.EF.Products
 
             builder.OwnsOne(o => o.Title, n =>
             {
-                n.Property(p => p.Value);
+                n.Property(p => p.Value).HasColumnName(nameof(Product.Title));
             });
 
         }

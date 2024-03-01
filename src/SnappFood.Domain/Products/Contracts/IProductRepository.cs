@@ -5,6 +5,6 @@
         Task SaveChangesAsync(CancellationToken cancellationToken);
         Task<Product> GetAsync(Guid id, CancellationToken cancellationToken);
         bool IsExist(string title);
-
+        Task CreateAsync(Product product, CancellationToken cancellationToken);
     }
 }

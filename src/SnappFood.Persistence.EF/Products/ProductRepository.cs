@@ -26,5 +26,11 @@ namespace SnappFood.Persistence.EF.Products
         {
             await _context.SaveChangesAsync(cancellationToken);
         }
+
+        public async Task CreateAsync(Product product, CancellationToken cancellationToken)
+        {
+            _context.Products.Add(product);
+            await _context.SaveChangesAsync(cancellationToken);
+        }
     }
 }

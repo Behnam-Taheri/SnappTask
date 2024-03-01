@@ -4,6 +4,10 @@ namespace SnappFood.Domain.Users
 {
     public class User : AggregateRoot<Guid>
     {
-        public string Name { get; set; } = null!;
+        public User()
+        {
+            Id = Guid.NewGuid();
+        }
+        public string Name { get; private set; } = null!;
     }
 }

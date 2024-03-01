@@ -1,20 +1,24 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\SnappFood.Application.Contract\SnappFood.Application.Contract.csproj" />
-    <ProjectReference Include="..\SnappFood.Application\SnappFood.Application.csproj" />
-    <ProjectReference Include="..\SnappFood.DomainServices\SnappFood.DomainServices.csproj" />
-    <ProjectReference Include="..\SnappFood.Persistence.EF\SnappFood.Persistence.EF.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\SnappFood.Application.Contract\SnappFood.Application.Contract.csproj" />
+		<ProjectReference Include="..\SnappFood.Application\SnappFood.Application.csproj" />
+		<ProjectReference Include="..\SnappFood.DomainServices\SnappFood.DomainServices.csproj" />
+		<ProjectReference Include="..\SnappFood.Persistence.EF\SnappFood.Persistence.EF.csproj" />
+	</ItemGroup>
 
 </Project>

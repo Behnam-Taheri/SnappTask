@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
+using Microsoft.Extensions.Caching.Memory;
 using SnappFood.Application.Contract.IServices;
 using SnappFood.Application.Services;
 using SnappFood.Domain.Products.Contracts;
@@ -13,6 +14,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddMemoryCache(x => new MemoryCacheEntryOptions()
+        .SetSlidingExpiration(TimeSpan.FromSeconds(60))
+        .SetAbsoluteExpiration(TimeSpan.FromSeconds(3600))
+        .SetPriority(CacheItemPriority.Normal));
 
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IProductTitleDuplicateChecker, ProductTitleDuplicateChecker>();

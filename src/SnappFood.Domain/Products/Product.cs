@@ -8,12 +8,16 @@ namespace SnappFood.Domain.Products
 {
     public class Product : AggregateRoot<Guid>
     {
+        private const uint DefaultInventoryCount = 3;
+        private Product() { }
+
         public Product(CreateProductArgument arg, IProductTitleDuplicateChecker productTitleDuplicateChecker)
         {
+            Id = Guid.NewGuid();
             Title = new Title(arg.Title, productTitleDuplicateChecker);
-            InventoryCount = arg.InventoryCount;
             Price = arg.Price;
             Discount = arg.Discount;
+            SetInventoryCount(arg.InventoryCount);
         }
 
         public Title Title { get; private set; }
@@ -21,7 +25,10 @@ namespace SnappFood.Domain.Products
         public long Price { get; private set; }
         public uint Discount { get; private set; }
 
-
+        public long CalculatePriceWithDiscount() => (Price * Discount) / 100;
         public void ChangeInventoryCount(uint count) => InventoryCount = count;
+        private void SetInventoryCount(uint? count) => InventoryCount = count.HasValue ? count.Value : DefaultInventoryCount;
+
+
     }
 }

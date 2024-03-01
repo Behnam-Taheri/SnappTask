@@ -4,8 +4,12 @@ namespace SnappFood.Domain.Orders
 {
     public class Order : AggregateRoot<Guid>
     {
-        public Guid UserId { get; set; }
-        public Guid ProductId { get; set; }
-        public DateTime CreationDate { get; set; }
+        public Order()
+        {
+            Id = Guid.NewGuid();
+        }
+        public Guid UserId { get; private set; }
+        public Guid ProductId { get; private set; }
+        public DateTime CreationDate { get; private set; }
     }
 }
