@@ -3,9 +3,12 @@ using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Caching.Memory;
 using SnappFood.Application.Contract.IServices;
 using SnappFood.Application.Services;
+using SnappFood.Domain.Orders.Contracts;
 using SnappFood.Domain.Products.Contracts;
 using SnappFood.DomainServices.Products;
+using SnappFood.Framework.Core.Abstractions;
 using SnappFood.Persistence.EF;
+using SnappFood.Persistence.EF.Orders;
 using SnappFood.Persistence.EF.Products;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,6 +26,11 @@ builder.Services.AddMemoryCache(x => new MemoryCacheEntryOptions()
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IProductTitleDuplicateChecker, ProductTitleDuplicateChecker>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+
 
 AddContext(builder);
 

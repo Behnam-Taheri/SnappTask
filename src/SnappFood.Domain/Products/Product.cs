@@ -25,10 +25,14 @@ namespace SnappFood.Domain.Products
         public long Price { get; private set; }
         public uint Discount { get; private set; }
 
+        public void DecreaseInventoryCount()
+        {
+            InventoryCount--;
+            if (InventoryCount < 0) throw new ArgumentOutOfRangeException();
+        }
+
         public long CalculatePriceWithDiscount() => (Price * Discount) / 100;
         public void ChangeInventoryCount(uint count) => InventoryCount = count;
         private void SetInventoryCount(uint? count) => InventoryCount = count.HasValue ? count.Value : DefaultInventoryCount;
-
-
     }
 }
