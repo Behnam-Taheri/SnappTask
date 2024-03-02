@@ -48,6 +48,16 @@ namespace SnappFood.Domian.Tests
             product.InventoryCount.Should().Be(2);
             product.Title.Value.Should().Be("Pizza");
         }
+
+
+        [Fact]
+        public void Update_Product_InventoryCount_Product_Should_Be_Update()
+        {
+            var product = new Product(argument, this);
+            product.ChangeInventoryCount(8);
+            product.InventoryCount.Should().Be(8);
+        }
+
         public bool IsExist(string title) => isExist;
 
     }

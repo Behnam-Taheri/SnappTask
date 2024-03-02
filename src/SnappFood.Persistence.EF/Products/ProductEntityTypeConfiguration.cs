@@ -19,6 +19,7 @@ namespace SnappFood.Persistence.EF.Products
                 n.Property(p => p.Value).HasColumnName(nameof(Product.Title));
             });
 
+            builder.HasMany(typeof(Order)).WithOne().HasForeignKey(nameof(Order.ProductId));
         }
     }
 }
